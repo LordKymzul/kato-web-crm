@@ -220,7 +220,8 @@ export function TotalStatisticsChart() {
                     </BarChart>
                 )
             default:
-                return null
+                // Render an empty fragment as fallback to avoid returning null
+                return <></>
         }
     }
 

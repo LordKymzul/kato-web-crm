@@ -201,7 +201,8 @@ export function CommissionStatisticsChart() {
                     </BarChart>
                 )
             default:
-                return null
+                // Render a fallback empty fragment to satisfy ReactElement requirement
+                return <></>
         }
     }
 

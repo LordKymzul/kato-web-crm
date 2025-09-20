@@ -213,7 +213,8 @@ export function TopEarningIBsChart() {
                     </AreaChart>
                 )
             default:
-                return null
+                // Return an empty fragment to satisfy ReactElement type
+                return <></>
         }
     }
 
