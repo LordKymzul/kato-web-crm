@@ -25,7 +25,7 @@ export interface Transaction {
   approveReason: string;
   brokerCommission: number;
   calculatedConversionRate: number;
-  checkedAt: string;
+  checkedAt: Date;
   checkedBy: string;
   client: string;
   clientIp: string;
@@ -128,7 +128,7 @@ export const allColumns = Object.values(columnCategories).flat();
 // Default selected columns (matching the image)
 export const defaultSelectedColumns = [
   "type",
-  "pspStatus", 
+  "pspStatus",
   "status",
   "createdAt",
   "processedAt",
@@ -155,7 +155,7 @@ const currencies = ["USD", "EUR", "GBP", "MYR", "SGD"];
 
 const names = [
   "Noor Hafiza Abdul Wahab",
-  "Muhammad Hafni Shauqi Abu Bakar", 
+  "Muhammad Hafni Shauqi Abu Bakar",
   "Hasib Manap",
   "Norazman Bin Ali",
   "Noraslita Asahan",
@@ -185,14 +185,14 @@ export const transactionsData: Transaction[] = Array.from({ length: 100 }, (_, i
   const gateway = gateways[Math.floor(Math.random() * gateways.length)];
   const server = servers[Math.floor(Math.random() * servers.length)];
   const currency = currencies[Math.floor(Math.random() * currencies.length)];
-  
+
   const baseDate = new Date('2025-09-19');
   const createdAt = new Date(baseDate.getTime() - Math.random() * 24 * 60 * 60 * 1000);
   const processedAt = new Date(createdAt.getTime() + Math.random() * 60 * 60 * 1000);
-  
+
   const amount = Math.floor(Math.random() * 10000) + 100;
   const commission = Math.floor(amount * 0.02);
-  
+
   return {
     id,
     type,
