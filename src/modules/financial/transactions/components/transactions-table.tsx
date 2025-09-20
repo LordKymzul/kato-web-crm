@@ -16,7 +16,6 @@ import {
     Transaction,
     allColumns,
     defaultSelectedColumns,
-    statusColors,
     typeColors,
     ColumnType,
     RECORDS_PER_PAGE_OPTIONS
@@ -120,7 +119,7 @@ export function TransactionsTable({ data, onExportCSV }: TransactionsTableProps)
     const generatePageNumbers = () => {
         const pages = [];
         const maxVisiblePages = 5;
-        
+
         if (totalPages <= maxVisiblePages) {
             for (let i = 1; i <= totalPages; i++) {
                 pages.push(i);
@@ -142,7 +141,7 @@ export function TransactionsTable({ data, onExportCSV }: TransactionsTableProps)
                 pages.push(totalPages);
             }
         }
-        
+
         return pages;
     };
 
@@ -200,7 +199,7 @@ export function TransactionsTable({ data, onExportCSV }: TransactionsTableProps)
                                 <tr key={transaction.id} className="hover:bg-muted/20">
                                     {visibleColumns.map((column) => (
                                         <td key={column.key} className="px-4 py-3 text-sm">
-                                            {column.key === 'type' ? 
+                                            {column.key === 'type' ?
                                                 renderTypeCell(transaction[column.key as keyof Transaction] as string) :
                                                 renderCellValue(transaction[column.key as keyof Transaction], column.type as ColumnType)
                                             }
